@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Joueur } from 'src/models/app.joueur';
 import { MatricePuissance4Service } from '../matrice-puissance4.service';
 
 @Component({
@@ -10,54 +11,78 @@ import { MatricePuissance4Service } from '../matrice-puissance4.service';
 export class DebutPartieComponent implements OnInit 
 {
   constructor(public MatricePuissance4Service: MatricePuissance4Service) {}
+  Joueur1!: Joueur;
+  Joueur2!: Joueur;
   score: Number = 0;
   tourJoueur: Boolean = false;
-  etatPartie: Boolean = false;
+  etatPartie: Boolean = true;
   matrice: number[][] = this.MatricePuissance4Service.getMatricePuissance4();
-
-  ngOnInit(): void {
-    console.log(this.matrice);
-  }
-  debutPartie(){
+  grille: number[][]= [[0,0,0,0,0,0,0],
+                       [0,0,0,0,0,0,0],
+                       [0,0,0,0,0,0,0],
+                       [0,0,0,0,0,0,0],
+                       [0,0,0,0,0,0,0],
+                       [0,0,0,0,0,0,0]];
+  myData: Joueur[] = [this.Joueur1, this.Joueur2];
+  sendData(value: string) {
+    this.Joueur1 = new Joueur(value[0]);
+    this.Joueur2 = new Joueur(value[1]);
+    this.Joueur1.setScore(0);
+    this.Joueur2.setScore(0);
     this.etatPartie = true;
   }
-
-  finPartie(){
-    //if () {
-      
-    //}
-    this.etatPartie = false;
+  ngOnInit(): void 
+  {
+    console.log(this.matrice);
   }
-  Clique(value: number, i: number, j:number){
-    console.log(value+ ' ' + i + ' '  + j);
+  debutPartie(): boolean
+  {
+    return this.etatPartie = true;
+  }
+  finPartie(): boolean
+  {
+    return this.etatPartie = false;
+  }
+  Clique(value: number, i: number, j:number)
+  {
+    console.log('Colonne : ' + i + ' Hauteur : '  + j);
     let Tombe = this.MatricePuissance4Service.checkColonne(j);
-    console.log(j);
-    const cell = document.getElementById(`${Tombe-1}-${j}`);
-    const cache1 = document.getElementById(`cache1`);
-    console.log(j);
-    console.log(cell);
-    if (cell){
-      if(this.etatPartie==false){
-        this.etatPartie=true;
-        console.log("Tour du joueur 2");
-        cell.classList.add('Joueur2');
-        cache1?.classList.add('cachéJoueur1');
-        if(value != 1){
-          this.MatricePuissance4Service.MaMatrice[Tombe][j]=1;
-        }
-      console.table(this.matrice);
-      }
-      else
+    const maCellule = document.getElementById(`${Tombe}-${j}`);
+    console.log("La cellule modifiée est la suivante");
+    console.log(maCellule);
+    if (maCellule){
+      if(this.tourJoueur==false)
       {
-        this.etatPartie=false;
-        console.log("Tour du joueur 1");
-        cell.classList.add('Joueur1');
-
-        if(value != 1){
+        this.tourJoueur=true;
+        console.log("Tour du joueur 2");
+        maCellule.classList.add('Joueur2');
+        if(value != 1)
+        {
           this.MatricePuissance4Service.MaMatrice[Tombe][j]=1;
         }
         console.table(this.matrice);
       }
+      else
+      {
+        this.tourJoueur=false;
+        console.log("Tour du joueur 1");
+        maCellule.classList.add('Joueur1');
+        if(value != 1)
+        {
+          this.MatricePuissance4Service.MaMatrice[Tombe][j]=2;
+        }
+        console.table(this.matrice);
+      }
+    }
+    for (let index = 0; index < array.length; index++) {
+      const element = array[index];
+      
+    }
+    if(this.etatPartie==false){
+      console.log("La partie est terminée");
+      /*if (4 Cases = 2) {
+        // alors Joueur 2 gagne !
+      }*/
     }
   }
 }
