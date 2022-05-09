@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
   templateUrl: './formulaire-joueur.component.html',
   styleUrls: ['./formulaire-joueur.component.scss']
 })
+
 export class FormulaireJoueurComponent implements OnInit {
   // Création de myData qui permet de récupérer les données du formulaires des joueurs.
   myData: any[] | undefined;

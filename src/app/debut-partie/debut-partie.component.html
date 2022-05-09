@@ -12,10 +12,7 @@
     <ng-template #elseJoueur2>
       <div class="milieuGauche">C'est le tour du <br>Joueur 1 (ROUGE)</div>
     </ng-template>
-    <ng-template>
-      <div class="milieuDroite">Le score de {{Joueur1}} :</div>
-    </ng-template>
-    <ng-template>
-      <div class="milieuDroite">Le score de {{Joueur2}} :</div>
-    </ng-template>
+    
+    <div class="milieuDroite">Le score de {{Joueur1.getNomJoueur()}}:</div>
+    <div class="milieuDroite2">Le score de {{Joueur2.getNomJoueur()}} :</div>
 </div>

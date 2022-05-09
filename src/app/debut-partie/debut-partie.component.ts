@@ -13,7 +13,8 @@ export class DebutPartieComponent implements OnInit
   constructor(public MatricePuissance4Service: MatricePuissance4Service) {}
   Joueur1!: Joueur;
   Joueur2!: Joueur;
-  score: Number = 0;
+  scoreJoueur1: Number = 0;
+  scoreJoueur2: Number = 0;
   tourJoueur: Boolean = false;
   etatPartie: Boolean = true;
   matrice: number[][] = this.MatricePuissance4Service.getMatricePuissance4();
@@ -23,14 +24,6 @@ export class DebutPartieComponent implements OnInit
                        [0,0,0,0,0,0,0],
                        [0,0,0,0,0,0,0],
                        [0,0,0,0,0,0,0]];
-  myData: Joueur[] = [this.Joueur1, this.Joueur2];
-  sendData(value: string) {
-    this.Joueur1 = new Joueur(value[0]);
-    this.Joueur2 = new Joueur(value[1]);
-    this.Joueur1.setScore(0);
-    this.Joueur2.setScore(0);
-    this.etatPartie = true;
-  }
   ngOnInit(): void 
   {
     console.log(this.matrice);
@@ -73,11 +66,15 @@ export class DebutPartieComponent implements OnInit
         }
         console.table(this.matrice);
       }
-    }
-    for (let index = 0; index < array.length; index++) {
+    }/*
+    for (let i=0; index < array.length; index++) {
       const element = array[index];
       
     }
+          for (let i = 0; i < this.rows; i++) {
+              count = (this.board[i][column] == player) ? count+1 : 0;
+            if (count >= 4) return true;
+          }*/
     if(this.etatPartie==false){
       console.log("La partie est terminée");
       /*if (4 Cases = 2) {

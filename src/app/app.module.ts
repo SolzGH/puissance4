@@ -7,12 +7,14 @@ import { FormsModule } from '@angular/forms';
 import { DebutPartieComponent } from './debut-partie/debut-partie.component';
 import { FormulaireJoueurComponent } from './formulaire-joueur/formulaire-joueur.component';
 import { routing } from './app.routing';
+import { LobbyComponent } from './lobby/lobby.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DebutPartieComponent,
-    FormulaireJoueurComponent
+    FormulaireJoueurComponent,
+    LobbyComponent
   ],
   imports: [
     BrowserModule,
