@@ -11,7 +11,7 @@ export class LobbyComponent implements OnInit {
   Joueur2!: Joueur;
   score: Number = 0;
   tourJoueur: Boolean = false;
-  etatPartie: Boolean = true;
+  etatPartie: Boolean = false;
   constructor() { }
   myData: Joueur[] = [this.Joueur1, this.Joueur2];
   sendData(value: string) {
@@ -20,6 +20,7 @@ export class LobbyComponent implements OnInit {
     this.Joueur1.setScore(0);
     this.Joueur2.setScore(0);
     this.etatPartie = true;
+
   }
   ngOnInit(): void {
   }

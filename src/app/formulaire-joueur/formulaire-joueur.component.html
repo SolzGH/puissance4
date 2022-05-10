@@ -16,7 +16,7 @@
                 <img src="../assets/joueur1_vFinal1.png" class="card-img-top" alt="...">
                 <div class="card-body">
                   <!-- Choix Joueur 1. Utilisation de NgModel -->
-                  <input required="required" ngModel required #first="ngModel" class="form-control" name="Joueur1" id="Joueur1" placeholder="Joueur 1">
+                  <input required="required" class="form-control" name="Joueur1" id="Joueur1" placeholder="Joueur 1"  ngModel required #first="ngModel">
                 </div>
               </div>
             </div>
@@ -27,7 +27,7 @@
                 <img src="../assets/joueur2_vFinal2.png" class="card-img-top" alt="...">
                 <div class="card-body">
                   <!-- Choix Joueur 2. Utilisation de NgModel -->
-                  <input required="required" ngModel required #second="ngModel" class="form-control" id="Joueur2" name="Joueur2" placeholder="Joueur 2">
+                  <input required="required"  class="form-control" id="Joueur2" name="Joueur2" placeholder="Joueur 2" ngModel required #second="ngModel">
                 </div>
               </div>
             </div>
@@ -38,7 +38,9 @@
              <div class="container d-flex w-100 flex-column justify-content-center align-content-center">
               <br>
               <!-- Bouton de validation du formulaire -->
-              <button (click)="versPartie()" type="submit" class="btn btn-primary mb-3">Confirmez pseudo Joueurs</button>
+              <!-- <button (click)="versPartie()" type="submit" class="btn btn-primary mb-3">Confirmez pseudo Joueurs</button> -->
+              <button type="submit" class="btn btn-primary mb-3">Confirmez pseudo Joueurs</button>
+
             </div>
           </div>
         </div>

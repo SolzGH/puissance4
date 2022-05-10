@@ -1,7 +1,7 @@
 
 export class Joueur {
     NomJoueur!: String;
-    Score!: Number;
+    Score!: number;
     Tour!: Boolean;
     constructor(NomJoueur: String){
         this.NomJoueur= NomJoueur;       
@@ -11,7 +11,7 @@ export class Joueur {
     public setNomJoueur(NomJoueur: String) {
       this.NomJoueur=NomJoueur;
     }
-    public setScore(Score: Number) {
+    public setScore(Score: number) {
       this.Score=Score;
     }
     public setTour(Tour: Boolean) {

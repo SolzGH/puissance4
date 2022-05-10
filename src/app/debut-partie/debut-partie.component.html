@@ -2,17 +2,17 @@
 <div class="container justify-content-center align-items-center">
     <div class="row center justify-content-center align-items-center" *ngFor="let obj of grille; let i = index;">
       <div class="col-sm-auto" *ngFor="let keyValues of obj; let j = index;">
-        <div (click)="Clique(keyValues,i,j)" id="{{i}}-{{j}}" class="Carte"></div>
+        <div (click)="Clique(i,j)" id="{{i}}-{{j}}" class="Carte"></div>
       </div>
     </div>
     <div *ngIf="tourJoueur; then ifJoueur1 else elseJoueur2"></div>
     <ng-template #ifJoueur1>
-      <div class="milieuGauche">C'est le tour du <br>Joueur 2 (JAUNE)</div>
+      <div class="milieuGauche">C'est le tour de <br>J{{Data[1].getNomJoueur()}}(JAUNE)</div>
     </ng-template>
     <ng-template #elseJoueur2>
-      <div class="milieuGauche">C'est le tour du <br>Joueur 1 (ROUGE)</div>
+      <div class="milieuGauche">C'est le tour de <br>{{Data[0].getNomJoueur()}} (ROUGE)</div>
     </ng-template>
     
-    <div class="milieuDroite">Le score de {{Joueur1.getNomJoueur()}}:</div>
-    <div class="milieuDroite2">Le score de {{Joueur2.getNomJoueur()}} :</div>
+    <div class="milieuDroite">Le score de  {{Data[0].getNomJoueur()}}: {{Data[0].getScore()}}</div>
+    <div class="milieuDroite2">Le score de {{Data[1].getNomJoueur()}}: {{Data[1].getScore()}}</div>
 </div>
