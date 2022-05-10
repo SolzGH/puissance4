@@ -1,4 +1,4 @@
-<html>
+
     <div *ngIf="!etatPartie; then form else game"></div>
     <ng-template #form>
         <app-formulaire-joueur (sendRequestToFather)="sendData($event)"></app-formulaire-joueur>
@@ -6,4 +6,3 @@
     <ng-template #game>
       <app-debut-partie [Data]="[Joueur1,Joueur2]" ></app-debut-partie>
     </ng-template>
-</html>

@@ -10,12 +10,15 @@
     padding-right: 0px !important;
     padding-left: 0px !important;
 }
+
 .Joueur1{
     background-image: url(../../assets/jaune.png) !important;
 }
+
 .Joueur2{
     background-image: url(../../assets/rouge.png) !important;
 }
+
 .milieuGauche{
     position: absolute !important;
     top:435px !important;
@@ -40,4 +43,22 @@
     font-family:'Times New Roman', Times, serif;
     font-size: 22px;
     color:white;
+}
+
+.milieuDroite3{
+    position: absolute !important;
+    top:515px !important;
+    left:1220px !important;
+    font-family:'Arial', Times, serif;
+    font-size: 22px;
+    color:white;
+}
+
+.btn-primary{
+    background-color:#ff8c00 !important;
+    border-color: #ff8c00 !important;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+    background-color:#ff8c00 !important;
+    border-color: #ff8c00 !important;
 }

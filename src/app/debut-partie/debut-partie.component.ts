@@ -23,7 +23,9 @@ export class DebutPartieComponent implements OnInit
 
   @Input()
   Data: Joueur[] = [];
-  
+  reloadCurrentPage() {
+    window.location.reload();
+   }
   ngOnInit(): void 
   {
     
@@ -38,6 +40,8 @@ export class DebutPartieComponent implements OnInit
   }
   Clique(i: number, j:number)
   {
+    if(this.Data[0].getScore()<3 && this.Data[1].getScore()<3)
+    {
     let Tombe = this.MatricePuissance4Service.checkColonne(j);
     const maCellule = document.getElementById(`${Tombe}-${j}`);
     if (maCellule && this.MatricePuissance4Service.MaMatrice[Tombe][j] == 0){
@@ -48,7 +52,7 @@ export class DebutPartieComponent implements OnInit
         this.MatricePuissance4Service.MaMatrice[Tombe][j]=1;
         this.etatPartie = !this.MatricePuissance4Service.win(Tombe, j, 1);
         if(this.etatPartie == false){
-          alert("Joueur 2 a gagné");
+          console.log("Joueur 2 a gagné");
           this.Data[1].setScore(this.Data[1].getScore() + 1);
         }
       }
@@ -59,13 +63,26 @@ export class DebutPartieComponent implements OnInit
         this.MatricePuissance4Service.MaMatrice[Tombe][j]=2;
         this.etatPartie = !this.MatricePuissance4Service.win(Tombe, j, 2);
         if(this.etatPartie == false){
-          alert("Joueur 1 a gagné");
+          console.log("Joueur 1 a gagné");
           this.Data[0].setScore(this.Data[0].getScore() + 1);
         }
       }
     }
     if(this.etatPartie==false){
       alert("La partie est terminée");
+      this.grille= [[0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0]];
+      this.MatricePuissance4Service.clearMatricePuisance4();
+      this.etatPartie=true;
     }
   }
+  else
+  {
+    this.finPartie();
+  }
+}
 }

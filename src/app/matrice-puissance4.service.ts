@@ -14,6 +14,14 @@ export class MatricePuissance4Service {
   getMatricePuissance4(){
     return this.MaMatrice;
   }
+  clearMatricePuisance4(){
+    this.MaMatrice= [[0,0,0,0,0,0,0],
+                          [0,0,0,0,0,0,0],
+                          [0,0,0,0,0,0,0],
+                          [0,0,0,0,0,0,0],
+                          [0,0,0,0,0,0,0],
+                          [0,0,0,0,0,0,0]];
+  }
   checkColonne(j : number){
   let Compte=0;
   for (let i = 1; i<6; i++) {
