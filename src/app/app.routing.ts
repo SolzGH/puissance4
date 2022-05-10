@@ -7,6 +7,7 @@ import { Router} from '@angular/router';
 import { DebutPartieComponent } from './debut-partie/debut-partie.component';
 import { LobbyComponent } from './lobby/lobby.component';
 import { FormulaireJoueurComponent } from './formulaire-joueur/formulaire-joueur.component';
+// Route (Vu en TP)
 const APP_ROUTING: Routes = [
     {path: 'debut-partie', component: DebutPartieComponent},
     {path: '', component: LobbyComponent}

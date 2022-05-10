@@ -7,6 +7,7 @@ import { MatricePuissance4Service } from '../matrice-puissance4.service';
   styleUrls: ['./lobby.component.scss']
 })
 export class LobbyComponent implements OnInit {
+  // Déclaration de mes variables
   Joueur1!: Joueur;
   Joueur2!: Joueur;
   score: Number = 0;
@@ -20,7 +21,6 @@ export class LobbyComponent implements OnInit {
     this.Joueur1.setScore(0);
     this.Joueur2.setScore(0);
     this.etatPartie = true;
-
   }
   ngOnInit(): void {
   }

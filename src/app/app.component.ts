@@ -16,9 +16,3 @@ export class AppComponent {
   ngOnInit(): void {
   }
 }
-/*(value: String) {
-  this.Joueur1 = new Joueur(value[0]);
-  this.Joueur2 = new Joueur(value[1]);
-  this.gameStart = true;
-}
-*/

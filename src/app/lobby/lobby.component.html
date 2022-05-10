@@ -1,8 +1,10 @@
-
+<!-- Ici , on affiche le début de la partie après avoir récupéré les données du Formulaire (Nom des Joueurs) -->
     <div *ngIf="!etatPartie; then form else game"></div>
     <ng-template #form>
+        <!-- Récupération des noms des joueurs du formulaire -->
         <app-formulaire-joueur (sendRequestToFather)="sendData($event)"></app-formulaire-joueur>
     </ng-template>
     <ng-template #game>
+        <!-- Utilisation des noms des joueurs pour la partie dans un tableau -->
       <app-debut-partie [Data]="[Joueur1,Joueur2]" ></app-debut-partie>
     </ng-template>
